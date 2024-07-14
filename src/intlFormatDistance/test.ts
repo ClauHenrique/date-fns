@@ -3,11 +3,12 @@ import { intlFormatDistance } from "./index.js";
 
 describe("intlFormatDistance", () => {
   describe("with default values", () => {
-    describe("works with same dates", () => {
+    describe("works with same", () => {
       it("outputs `now`", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 0),
           new Date(1986, 3, 5, 10, 30, 0),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("now");
       });
@@ -18,6 +19,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 1),
           new Date(1986, 3, 5, 10, 30, 0),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 1 second");
       });
@@ -26,6 +28,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 0),
           new Date(1986, 3, 5, 10, 30, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("1 second ago");
       });
@@ -36,6 +39,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 59),
           new Date(1986, 3, 5, 10, 30, 0),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 59 seconds");
       });
@@ -44,6 +48,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 0),
           new Date(1986, 3, 5, 10, 30, 59),
+            { locale: 'en-US', numeric: 'auto' },
         );
         expect(result).toBe("59 seconds ago");
       });
@@ -54,6 +59,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 59),
           new Date(1986, 3, 5, 10, 29, 59),
+            { locale: 'en-US', numeric: 'auto' },
         );
         expect(result).toBe("in 1 minute");
       });
@@ -62,6 +68,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30),
           new Date(1986, 3, 5, 10, 28, 10),
+            { locale: 'en-US', numeric: 'auto' },
         );
         expect(result).toBe("in 1 minute");
       });
@@ -70,6 +77,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 29, 59),
           new Date(1986, 3, 5, 10, 30, 59),
+            { locale: 'en-US', numeric: 'auto' },
         );
         expect(result).toBe("1 minute ago");
       });
@@ -78,6 +86,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 28, 10),
           new Date(1986, 3, 5, 10, 30),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("1 minute ago");
       });
@@ -88,6 +97,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30),
           new Date(1986, 3, 5, 10, 28),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 minutes");
       });
@@ -96,6 +106,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 28),
           new Date(1986, 3, 5, 10, 30),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 minutes ago");
       });
@@ -106,6 +117,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 4, 11, 30, 0),
           new Date(1986, 3, 4, 10, 30, 0),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 1 hour");
       });
@@ -114,6 +126,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 4, 10, 30, 0),
           new Date(1986, 3, 4, 11, 30, 0),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("1 hour ago");
       });
@@ -124,6 +137,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10),
           new Date(1986, 3, 5, 9),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 1 hour");
       });
@@ -132,6 +146,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30),
           new Date(1986, 3, 5, 9),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 1 hour");
       });
@@ -140,6 +155,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 9),
           new Date(1986, 3, 5, 10),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("1 hour ago");
       });
@@ -148,6 +164,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 9),
           new Date(1986, 3, 5, 10, 30),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("1 hour ago");
       });
@@ -158,6 +175,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10),
           new Date(1986, 3, 5, 8),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 hours");
       });
@@ -166,6 +184,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30),
           new Date(1986, 3, 5, 8),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 hours");
       });
@@ -174,6 +193,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 8),
           new Date(1986, 3, 5, 10),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 hours ago");
       });
@@ -182,6 +202,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 8),
           new Date(1986, 3, 5, 10),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 hours ago");
       });
@@ -192,6 +213,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 6, 22),
           new Date(1986, 3, 5, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("tomorrow");
       });
@@ -200,6 +222,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 22),
           new Date(1986, 3, 6, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("yesterday");
       });
@@ -208,6 +231,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 22),
           new Date(1986, 3, 6, 22, 5),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("yesterday");
       });
@@ -218,6 +242,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 6, 22),
           new Date(1986, 3, 4, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 days");
       });
@@ -226,6 +251,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 4, 22),
           new Date(1986, 3, 6, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 days ago");
       });
@@ -236,6 +262,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 10, 22),
           new Date(1986, 3, 3, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next week");
       });
@@ -244,6 +271,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 11, 22),
           new Date(1986, 3, 3, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next week");
       });
@@ -252,6 +280,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 3, 22),
           new Date(1986, 3, 10, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last week");
       });
@@ -260,6 +289,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 3, 22),
           new Date(1986, 3, 11, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last week");
       });
@@ -270,6 +300,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 15),
           new Date(1986, 3, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 weeks");
       });
@@ -278,6 +309,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 17),
           new Date(1986, 3, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 weeks");
       });
@@ -286,6 +318,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 1),
           new Date(1986, 3, 15),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 weeks ago");
       });
@@ -294,6 +327,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 1),
           new Date(1986, 3, 17),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 weeks ago");
       });
@@ -304,6 +338,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 4, 2),
           new Date(1986, 3, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next month");
       });
@@ -312,6 +347,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 4, 22),
           new Date(1986, 3, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next month");
       });
@@ -320,6 +356,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 1),
           new Date(1986, 4, 2),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last month");
       });
@@ -328,6 +365,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 1),
           new Date(1986, 4, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last month");
       });
@@ -338,6 +376,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 5, 2),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next quarter");
       });
@@ -346,6 +385,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 5, 22),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next quarter");
       });
@@ -354,6 +394,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1986, 5, 2),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last quarter");
       });
@@ -362,6 +403,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1986, 5, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last quarter");
       });
@@ -372,6 +414,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 6, 2),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 quarters");
       });
@@ -380,6 +423,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 6, 22),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 quarters");
       });
@@ -388,6 +432,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1986, 6, 2),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 quarters ago");
       });
@@ -396,6 +441,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1986, 6, 22),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 quarters ago");
       });
@@ -406,6 +452,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1987, 1, 2),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next year");
       });
@@ -414,6 +461,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1987, 10, 2),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("next year");
       });
@@ -422,6 +470,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1987, 1, 2),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last year");
       });
@@ -430,6 +479,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1987, 10, 2),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("last year");
       });
@@ -440,6 +490,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1988, 1, 1),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 2 years");
       });
@@ -448,6 +499,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(2088, 1, 1),
           new Date(1986, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("in 102 years");
       });
@@ -456,6 +508,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 1, 1),
           new Date(1988, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("2 years ago");
       });
@@ -464,6 +517,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1988, 1, 1),
           new Date(2086, 1, 1),
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("98 years ago");
       });
@@ -477,7 +531,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 4, 10, 31, 30),
             new Date(1987, 3, 4, 10, 30, 0),
-            { unit: "second" },
+              { locale: 'en-US', numeric: "auto",  unit: "second" }
           );
           expect(result).toBe("in 90 seconds");
         });
@@ -486,7 +540,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 4, 10, 30, 0),
             new Date(1987, 3, 4, 10, 31, 30),
-            { unit: "second" },
+              { locale: 'en-US', numeric: 'auto',  unit: "second" },
           );
           expect(result).toBe("90 seconds ago");
         });
@@ -495,7 +549,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 6, 4, 10, 30, 0),
             new Date(1986, 3, 4, 10, 30, 0),
-            { unit: "quarter" },
+              { locale: 'en-US', numeric: 'auto',  unit: "quarter" }
           );
           expect(result).toBe("in 5 quarters");
         });
@@ -506,7 +560,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 4, 11, 30, 0),
             new Date(1986, 3, 4, 10, 30, 0),
-            { unit: "minute" },
+              { locale: 'en-US', numeric: 'auto', unit: "minute" }
           );
           expect(result).toBe("in 60 minutes");
         });
@@ -515,7 +569,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 4, 10, 30, 0),
             new Date(1986, 3, 4, 11, 30, 0),
-            { unit: "minute" },
+              { locale: 'en-US', numeric: 'auto', unit: "minute" }
           );
           expect(result).toBe("60 minutes ago");
         });
@@ -526,8 +580,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 4, 11, 30, 0),
             new Date(1986, 3, 4, 10, 30, 0),
-
-            { unit: "hour" },
+              { locale: 'en-US', numeric: 'auto', unit: "hour" }
           );
           expect(result).toBe("in 1 hour");
         });
@@ -536,8 +589,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 4, 10, 30, 0),
             new Date(1986, 3, 4, 11, 30, 0),
-
-            { unit: "hour" },
+              { locale: 'en-US', numeric: 'auto', unit: "hour" }
           );
           expect(result).toBe("1 hour ago");
         });
@@ -548,7 +600,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 4, 11, 30, 0),
             new Date(1987, 3, 4, 10, 30, 0),
-            { unit: "day" },
+              { locale: 'en-US', numeric: 'auto', unit: "day" }
           );
           expect(result).toBe("today");
         });
@@ -557,6 +609,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 5, 10, 30, 0),
             new Date(1986, 3, 4, 10, 30, 0),
+              { locale: 'en-US', numeric: 'auto' }
           );
           expect(result).toBe("tomorrow");
         });
@@ -567,7 +620,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 5, 10, 30, 0),
             new Date(1986, 3, 4, 10, 30, 0),
-            { unit: "day" },
+              { locale: 'en-US', numeric: 'auto', unit: "day" }
           );
           expect(result).toBe("in 366 days");
         });
@@ -576,8 +629,8 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 4, 10, 30, 0),
             new Date(1987, 3, 5, 10, 30, 0),
+              { locale: 'en-US', numeric: 'auto', unit: "day" }
 
-            { unit: "day" },
           );
           expect(result).toBe("366 days ago");
         });
@@ -588,7 +641,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 11, 10, 30, 0),
             new Date(1987, 3, 4, 10, 30, 0),
-            { unit: "week" },
+              { locale: 'en-US', numeric: 'auto',  unit: "week" }
           );
           expect(result).toBe("next week");
         });
@@ -597,7 +650,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 4, 10, 30, 0),
             new Date(1987, 3, 11, 10, 30, 0),
-            { unit: "week" },
+              { locale: 'en-US', numeric: 'auto' ,  unit: "week"},
           );
           expect(result).toBe("last week");
         });
@@ -608,7 +661,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1987, 3, 6, 10, 30, 0),
             new Date(1986, 3, 4, 10, 30, 0),
-            { unit: "week" },
+              { locale: 'en-US', numeric: 'auto',  unit: "week" }
           );
           expect(result).toBe("in 53 weeks");
         });
@@ -617,8 +670,8 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 4, 10, 30, 0),
             new Date(1987, 3, 6, 10, 30, 0),
+              { locale: 'en-US', numeric: 'auto' ,  unit: "week"}
 
-            { unit: "week" },
           );
           expect(result).toBe("53 weeks ago");
         });
@@ -631,7 +684,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 3, 22),
             new Date(1986, 3, 10, 22),
-            { numeric: "always" },
+              { locale: 'en-US', numeric: "always" }
           );
           expect(result).toBe("1 week ago");
         });
@@ -640,7 +693,7 @@ describe("intlFormatDistance", () => {
           const result = intlFormatDistance(
             new Date(1986, 3, 10, 22),
             new Date(1986, 3, 3, 22),
-            { numeric: "always" },
+              { locale: 'en-US', numeric: "always" }
           );
           expect(result).toBe("in 1 week");
         });
@@ -650,7 +703,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 0),
           new Date(1986, 3, 4, 10, 30, 0),
-          { numeric: "always" },
+            { locale: 'en-US', numeric: 'always' }
         );
         expect(result).toBe("in 1 day");
       });
@@ -659,7 +712,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 3, 5, 10, 30, 0),
           new Date(1986, 3, 5, 10, 30, 0),
-          { numeric: "auto" },
+            { locale: 'en-US', numeric: 'auto' }
         );
         expect(result).toBe("now");
       });
@@ -683,7 +736,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1986, 4, 4, 10, 30, 0),
           new Date(1985, 4, 4, 10, 30, 0),
-          { style: "long" },
+            { locale: 'en-US', numeric: 'auto',  style: "long" }
         );
         expect(result).toBe("next year");
       });
@@ -705,7 +758,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1985, 4, 5, 10, 30, 0),
           new Date(1985, 4, 4, 10, 30, 0),
-          { style: "long", numeric: "auto" },
+            { locale: 'en-US', style: "long" }
         );
         expect(result).toBe("tomorrow");
       });
@@ -714,7 +767,7 @@ describe("intlFormatDistance", () => {
         const result = intlFormatDistance(
           new Date(1, 3, 4, 11, 30, 0),
           new Date(1, 3, 4, 10, 30, 0),
-          { unit: "minute" },
+            { locale: 'en-US', numeric: 'auto', unit: "minute" }
         );
         expect(result).toBe("in 60 minutes");
       });
@@ -740,6 +793,7 @@ describe("intlFormatDistance", () => {
       it("checks both dates", () => {
         expect(intlFormatDistance.bind(null, new Date(NaN), new Date(NaN))).toThrow(RangeError);
       });
+
 
       it("checks unit", () => {
         expect(intlFormatDistance.bind(
